@@ -23,5 +23,6 @@ namespace GenesisAlistar
             if (Settings.UseW && SpellManager.W.IsInRange(target) && SpellManager.W.IsReady()) { SpellManager.W.Cast(target); return; }
             return;
         }
+
     }
 }

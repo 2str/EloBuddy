@@ -17,7 +17,7 @@ namespace GenesisAlistar.Modes
         {
             if (Settings.UseQ && Q.IsReady() && Settings.QMana < Player.Instance.ManaPercent)
             {
-                if (EntityManager.MinionsAndMonsters.EnemyMinions.Count(minion=> minion.Distance(Player.Instance) < Q.Range) > Settings.QNum)
+                if (EntityManager.MinionsAndMonsters.EnemyMinions.Count(minion=> minion.Distance(Player.Instance) < Q.Range) >= Settings.QNum)
                 {
                     Q.Cast();
                 }

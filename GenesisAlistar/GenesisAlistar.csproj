@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnnoyManager.cs" />
     <Compile Include="InsecManager.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="InterruptManager.cs" />

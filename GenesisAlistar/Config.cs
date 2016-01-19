@@ -70,7 +70,9 @@ namespace GenesisAlistar
             public static class PermaActive
             {
                 private static readonly CheckBox _useE;
+                private static readonly CheckBox _useEA;
                 private static readonly CheckBox _useR;
+                private static readonly CheckBox _useW;
 
                 public static int EHP
                 {
@@ -80,9 +82,21 @@ namespace GenesisAlistar
                 {
                     get { return MiscMenu["EMP"].Cast<Slider>().CurrentValue; }
                 }
+                public static int WTarg
+                {
+                    get { return MiscMenu["WTarg"].Cast<Slider>().CurrentValue; }
+                }
                 public static bool UseE
                 {
                     get { return _useE.CurrentValue; }
+                }
+                public static bool UseW
+                {
+                    get { return _useW.CurrentValue; }
+                }
+                public static bool UseEA
+                {
+                    get { return _useEA.CurrentValue; }
                 }
                 public static bool UseR
                 {
@@ -93,10 +107,14 @@ namespace GenesisAlistar
                 {
                     MiscMenu.AddLabel("AlwaysOn");
                     _useE = MiscMenu.Add("AlwaysUseE", new CheckBox("Use E"));
-                    _useR = MiscMenu.Add("AlwaysUseR", new CheckBox("Use R on CC")); 
+                    _useEA = MiscMenu.Add("AlwaysUseEA", new CheckBox("Use E to deny farm (EXPERIMENTAL)"));
+                    _useR = MiscMenu.Add("AlwaysUseR", new CheckBox("Use R on CC"));
                     MiscMenu.Add("EHP", new Slider("Heal when allies reach HP% ({0}%)", 80));
                     MiscMenu.Add("EMP", new Slider("Heal until you reach Mana% ({0}%)", 40));
-                    
+                    _useW = MiscMenu.Add("AlwaysUseWFlee", new CheckBox("Use W to help flee"));
+                    MiscMenu.Add("WTarg", new Slider("Look this many units from the cursor for a flee target ({0})", 300,100,700));
+
+
                 }
 
                 public static void Initialize() { }
@@ -224,9 +242,11 @@ namespace GenesisAlistar
                 switch (TargetSelector.GetPriority(Eplayer))
                 {
                     case 1:
-                        return 1;
-                    case 5:
+                    case 2:
                         return 3;
+                    case 5:
+                    case 4:
+                        return 1;
                     default:
                         return 2;
                 }
@@ -324,11 +344,11 @@ namespace GenesisAlistar
                 }
                 public static int QNum
                 {
-                    get { return MiscMenu["QNum"].Cast<Slider>().CurrentValue; }
+                    get { return LCMenu["QNum"].Cast<Slider>().CurrentValue; }
                 }
                 public static int QMana
                 {
-                    get { return MiscMenu["QMana"].Cast<Slider>().CurrentValue; }
+                    get { return LCMenu["QMana"].Cast<Slider>().CurrentValue; }
                 }
 
                 static LC()

@@ -19,7 +19,7 @@ namespace GenesisAlistar.Modes
             if (Player.Instance.IsRecalling()) return; //Why this requires overload
             if (Player.Instance.IsDead) return; //And this doesnt, is beyond me.
 
-            if (E.IsReady() && Settings.UseE && Player.Instance.ManaPercent > Settings.EMP && (Player.Instance.HealthPercent < Settings.EHP || EntityManager.Heroes.Allies.Any(ally => ally.HealthPercent < Settings.EHP && Player.Instance.Distance(ally) <= 550)))
+            if ((E.IsReady() && Settings.UseE && Player.Instance.ManaPercent > Settings.EMP && (Player.Instance.HealthPercent < Settings.EHP || EntityManager.Heroes.Allies.Any(ally => ally.HealthPercent < Settings.EHP && Player.Instance.Distance(ally) <= 550))))
             {
                 E.Cast();
             }

@@ -13,7 +13,7 @@ namespace GenesisAlistar
         public static int InsecState = 0;
         public static int c = 0;
         static InsecManager()
-        {}
+        { }
 
         static Vector3 getPos(AIHeroClient target, int c)
         {
@@ -27,10 +27,10 @@ namespace GenesisAlistar
                 point = Vector3.Zero;
             allyPos = point;
             if (allyPos == Vector3.Zero) return Vector3.Zero;
-            var targetPos = target.Position;
+            Vector3 targetPos = target.Position;
             //From the Ally position we extended (the distance between both + 100) units in the target direction THANKS @WUJU!
-            if(c == 3) { moveTo = allyPos.Extend(target, ally1.Distance(target) - Settings.Dist).To3DWorld(); }
-            if(c == 1) { moveTo = allyPos.Extend(target, ally1.Distance(target) + Settings.Dist).To3DWorld(); }
+            if (c == 3) { moveTo = allyPos.Extend(target, ally1.Distance(target) - Settings.Dist).To3DWorld(); }
+            if (c == 1) { moveTo = allyPos.Extend(target, ally1.Distance(target) + Settings.Dist).To3DWorld(); }
 
             if (NavMesh.GetCollisionFlags(moveTo) == CollisionFlags.Building || NavMesh.GetCollisionFlags(moveTo) == CollisionFlags.Wall)
             {
@@ -43,7 +43,7 @@ namespace GenesisAlistar
         public static int getEnabled(AIHeroClient target)
         {
             var c = 0;
-            if(target.Name == Settings.champ1name)
+            if (target.Name == Settings.champ1name)
             {
                 c = Settings.champ1;
             }
@@ -73,7 +73,7 @@ namespace GenesisAlistar
         public static void Insec(AIHeroClient target)
         {
             if (target == null) return;
-            
+
             Vector3 moveTo = new Vector3();
             if (getEnabled(target) == 2 || getEnabled(target) == 0) { return; }
             c = getEnabled(target);
@@ -91,7 +91,7 @@ namespace GenesisAlistar
                     Player.IssueOrder(GameObjectOrder.MoveTo, moveTo, false);
                     Orbwalker.DisableMovement = true;
                     InsecState = 1;
-                break;
+                    break;
 
                 case 1:
                     if (Player.Instance.Distance(_moveTo) < 50)
@@ -121,9 +121,9 @@ namespace GenesisAlistar
                             InsecState = 0;
                             Orbwalker.DisableMovement = false;
                         }
-                        
+
                     }
-                break;
+                    break;
 
                 case 2:
                     //Perform Insec
@@ -143,11 +143,11 @@ namespace GenesisAlistar
                     {
                         InsecState = 0;
                     }, 1000);
-                break;
+                    break;
                 default:
                     InsecState = 0;
-                break;
-            }    
+                    break;
+            }
         }
 
 

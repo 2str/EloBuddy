@@ -41,6 +41,7 @@ namespace GenesisAlistar
             // Listen to events we need
             Interrupter.OnInterruptableSpell += InterruptManager.OnInterruptable;
             Drawing.OnDraw += OnDraw;
+            Obj_AI_Base.OnBasicAttack += AnnoyManager.OnAnnoyable;
         }
 
         private static void OnDraw(EventArgs args)
