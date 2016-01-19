@@ -19,7 +19,7 @@ namespace GenesisAlistar.Modes
             // TODO: Add harass logic here
             if (Settings.UseQ && Q.IsReady())
             {
-                var target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
+                AIHeroClient target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
                 if (target != null)
                 {
                     Q.Cast(target);

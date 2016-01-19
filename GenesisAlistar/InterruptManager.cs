@@ -16,7 +16,7 @@ namespace GenesisAlistar
 
         internal static void OnInterruptable(Obj_AI_Base sender, Interrupter.InterruptableSpellEventArgs args)
         {
-            var target = sender;
+            Obj_AI_Base target = sender;
             if (target == null) return;
             if (!SpellManager.Q.IsReady() && !SpellManager.W.IsReady()) return;
             if (Settings.UseQ && SpellManager.Q.IsInRange(target) && SpellManager.Q.IsReady()) { SpellManager.Q.Cast(); return; }

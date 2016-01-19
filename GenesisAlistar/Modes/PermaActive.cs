@@ -37,7 +37,7 @@ namespace GenesisAlistar.Modes
 
             if (Config.Modes.Insec.InsecKey)
             {
-                var target = TargetSelector.GetTarget(W.Range,DamageType.Magical);
+                AIHeroClient target = TargetSelector.GetTarget(W.Range,DamageType.Magical);
                 InsecManager.Insec(target);
             }
             else { InsecManager.InsecState = 0; }

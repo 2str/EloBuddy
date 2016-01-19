@@ -42,7 +42,7 @@ namespace GenesisAlistar
 
         public static int getEnabled(AIHeroClient target)
         {
-            var c = 0;
+            int c = 0;
             if (target.Name == Settings.champ1name)
             {
                 c = Settings.champ1;
@@ -127,7 +127,7 @@ namespace GenesisAlistar
 
                 case 2:
                     //Perform Insec
-                    var move = getPos(target, c);
+                    Vector3 move = getPos(target, c);
                     if (move == Vector3.Zero) return;
                     Core.DelayAction(delegate
                     {

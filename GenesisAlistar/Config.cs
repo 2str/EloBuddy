@@ -181,7 +181,7 @@ namespace GenesisAlistar
                 static Insec()
                 {
                     
-                    var i = 0;
+                    int i = 0;
                     
                     InsecMenu.Add("Insec", new KeyBind("Insec", false, KeyBind.BindTypes.HoldActive, 'X'));
                     _useF = InsecMenu.Add("AlwaysUseF", new CheckBox("Use Flash"));

@@ -4,7 +4,7 @@ using Settings = GenesisAlistar.Config.Modes.PermaActive;
 
 namespace GenesisAlistar
 {
-    class AnnoyManager
+    internal class AnnoyManager
     {
 
         public static void Initialize()

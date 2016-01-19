@@ -17,14 +17,14 @@ namespace GenesisAlistar.Modes
         {
             if (W.IsReady() && Settings.UseW)
             {
-                var runFrom = EntityManager.Heroes.Enemies.Where(
+                AIHeroClient runFrom = EntityManager.Heroes.Enemies.Where(
                         hero => hero.Distance(Player.Instance) < 500).OrderBy(x => x.Distance(Player.Instance)).FirstOrDefault();
                 if (runFrom == null) return;
-                var targetMinion =
+                Obj_AI_Minion targetMinion =
                     EntityManager.MinionsAndMonsters.EnemyMinions.Where(
                         minion => minion.Distance(Player.Instance) < W.Range && minion.Distance(Game.CursorPos) < Settings.WTarg)
                         .OrderBy(x => x.Distance(Game.CursorPos)).FirstOrDefault();
-                var targetHero =
+                AIHeroClient targetHero =
                     EntityManager.Heroes.Enemies.Where(
                         hero => hero.Distance(Player.Instance) < W.Range && hero.Distance(Game.CursorPos) < Settings.WTarg)
                         .OrderBy(x => x.Distance(Game.CursorPos)).FirstOrDefault();
