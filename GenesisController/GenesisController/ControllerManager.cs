@@ -10,7 +10,7 @@ using SharpDX.XInput;
 
 namespace GenesisController
 {
-    class ControllerManager
+    internal class ControllerManager
     {
         private static readonly Controller MyController = new Controller(UserIndex.One);
         static ControllerManager()
@@ -29,11 +29,16 @@ namespace GenesisController
             
             State state = MyController.GetState();
             float x = state.Gamepad.LeftThumbX;
+            if (x < 500 && x > -500) x = 0;
             float y = state.Gamepad.LeftThumbY;
+            if (y < 500 && y > -500) y = 0;
             const int rangeMax = 32767;
+            
             Vector2 move = new Vector2(Player.Instance.Position.X + 300 * (x / rangeMax),
-                Player.Instance.Position.Y + 300 * (y / rangeMax));
+                Player.Instance.Position.Y + 150 * (y / rangeMax));
+            Orbwalker.DisableMovement = false;
             Orbwalker.MoveTo(move.To3DWorld());
+            Orbwalker.DisableMovement = true;
             if ((state.Gamepad.Buttons & GamepadButtonFlags.A) != 0)
             {
                 Orbwalker.ActiveModesFlags = Orbwalker.ActiveModes.Combo;
