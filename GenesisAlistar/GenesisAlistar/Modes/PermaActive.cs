@@ -24,7 +24,7 @@ namespace GenesisAlistar.Modes
                 E.Cast();
             }
             if (
-                R.IsReady() && 
+                R.IsReady() && Settings.UseR &&
                 (
                     Player.HasBuffOfType(BuffType.Fear) || Player.HasBuffOfType(BuffType.Silence) || Player.HasBuffOfType(BuffType.Snare) || 
                     Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Charm) || Player.HasBuffOfType(BuffType.Blind) || 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
 using EloBuddy;
 using EloBuddy.SDK;
 using SharpDX;
@@ -36,7 +32,7 @@ namespace GenesisController
             if (x != 0 && y != 0)
             {
                 Vector2 move = new Vector2(Player.Instance.Position.X + 300*(x/rangeMax),
-                    Player.Instance.Position.Y + 150*(y/rangeMax));
+                    Player.Instance.Position.Y + 300*(y/rangeMax));
                 if (
                     !(NavMesh.GetCollisionFlags(move) == CollisionFlags.Building ||
                       NavMesh.GetCollisionFlags(move) == CollisionFlags.Wall))
@@ -46,7 +42,6 @@ namespace GenesisController
                     Orbwalker.DisableMovement = true;
                 }
             }
-
             if ((state.Gamepad.Buttons & GamepadButtonFlags.A) != 0)
             {
                 Orbwalker.ActiveModesFlags = Orbwalker.ActiveModes.Combo;

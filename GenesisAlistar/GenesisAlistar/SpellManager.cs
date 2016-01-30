@@ -19,7 +19,7 @@ namespace GenesisAlistar
         static SpellManager()
         {
             // Initialize spells
-            Q = new Spell.Active(SpellSlot.Q, 330);
+            Q = new Spell.Active(SpellSlot.Q, 315);
             W = new Spell.Targeted(SpellSlot.W, 625);
             E = new Spell.Active(SpellSlot.E);
             R = new Spell.Active(SpellSlot.R);
@@ -34,7 +34,5 @@ namespace GenesisAlistar
         {
             // Let the static initializer do the job, this way we avoid multiple init calls aswell
         }
-
-        static void castQ() { }
     }
 }
