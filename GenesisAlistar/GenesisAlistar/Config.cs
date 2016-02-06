@@ -259,6 +259,11 @@ namespace GenesisAlistar
                 private static readonly CheckBox _useQW;
                 private static readonly CheckBox _useW;
 
+                public static int Delay
+                {
+                    get { return ComboMenu["Delay"].Cast<Slider>().CurrentValue; }
+                }
+
                 public static bool UseQ
                 {
                     get { return _useQ.CurrentValue; }
@@ -279,6 +284,8 @@ namespace GenesisAlistar
                     _useQ = ComboMenu.Add("comboUseQ", new CheckBox("Use Q"));
                     _useW = ComboMenu.Add("comboUseW", new CheckBox("Use W"));
                     _useQW = ComboMenu.Add("comboUseQW", new CheckBox("Use Q->W"));
+                    ComboMenu.Add("Delay", new Slider("Q->W Delay", 0, -50, 50));
+                    ComboMenu.AddGroupLabel("Combo");
                 }
 
                 public static void Initialize()

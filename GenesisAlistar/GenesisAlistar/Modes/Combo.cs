@@ -26,9 +26,10 @@ namespace GenesisAlistar.Modes
                     Core.DelayAction(delegate
                     {
                         Q.Cast();
-                    }, (int)Math.Floor(725 - target.Distance(Player.Instance)));
+                    }, (int)Math.Floor(750 - target.Distance(Player.Instance) + Settings.Delay));
                     W.Cast(target);
             }
+            target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             if (Settings.UseQ && Q.IsReady())
             {
                 if (target != null)
@@ -36,6 +37,7 @@ namespace GenesisAlistar.Modes
                     Q.Cast();
                 }
             }
+            target = TargetSelector.GetTarget(W.Range, DamageType.Magical);
             if (Settings.UseW && W.IsReady())
             {
                 if (target != null)
