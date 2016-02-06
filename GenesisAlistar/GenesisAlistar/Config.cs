@@ -285,7 +285,7 @@ namespace GenesisAlistar
                     _useW = ComboMenu.Add("comboUseW", new CheckBox("Use W"));
                     _useQW = ComboMenu.Add("comboUseQW", new CheckBox("Use Q->W"));
                     ComboMenu.Add("Delay", new Slider("Q->W Delay", 0, -50, 50));
-                    ComboMenu.AddGroupLabel("Combo");
+                    ComboMenu.AddLabel("Dont adjust unless you need to!");
                 }
 
                 public static void Initialize()
